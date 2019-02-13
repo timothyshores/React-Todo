@@ -1,5 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import App from './App';
+import "./index.css"
 
-render(<App />, document.getElementById('root'));
+var destination = document.querySelector("#container");
+
+ReactDOM.render(
+    <div>
+        <p>Hello</p>
+    </div>,
+    destination
+);
