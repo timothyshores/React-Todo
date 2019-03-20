@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Todo = () => {
+const Todo = props => {
     return (
-        <p>Todo Component</p>
+        <p>{props.todo.task}</p>
     );
 };
 

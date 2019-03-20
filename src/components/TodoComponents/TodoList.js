@@ -5,13 +5,13 @@ import React from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
-const TodoList = () => {
+const TodoList = props => {
     return (
         <div className="TodoList">
-            <h1>Todo List Component</h1>
-            <Todo />
-            <Todo />
-            <Todo />
+            <h1>Todo List: MVP</h1>
+            <Todo todo={props.todos[0]} />
+            <Todo todo={props.todos[1]} />
+            <Todo todo={props.todos[2]} />
         </div>
     );
 };
