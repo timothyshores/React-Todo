@@ -6,7 +6,7 @@ const todos = [
     {
         task: 'Create a Todo List App using React.js',
         id: 0,
-        completed: false,
+        completed: true,
     },
     {
         task: 'Push code to GitHub repo',
@@ -38,6 +38,25 @@ class App extends React.Component {
         };
     }
 
+    toggleCompleted = todo => {
+        console.log('App toggleCompleted', todo);
+
+        // this.setState({
+        //     toDoList: this.state.toDoList.map(todo => {
+        //         if (todo.id === id) {
+        //             return {
+        //                 ...todo,
+        //                 // name: item.name,
+        //                 // id: item.id,
+        //                 // purchased: item.purchased
+        //                 completed: !item.purchased
+        //             };
+        //         }
+        //         return item;
+        //     })
+        // });
+    };
+
     handleChanges = event => {
         // update the name property on state
         this.setState({
@@ -58,11 +77,13 @@ class App extends React.Component {
         });
     };
 
-
     render() {
         return (
             <div className="app">
-                <TodoList todos={this.state.toDoList} />
+                <TodoList
+                    todos={this.state.toDoList}
+                    toggleCompleted={this.toggleCompleted}
+                />
                 <TodoForm
                     newTask={this.state.newTask}
                     handleChanges={this.handleChanges}
