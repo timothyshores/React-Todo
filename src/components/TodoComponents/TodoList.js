@@ -5,7 +5,6 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-    // console.log('TodoList Props', props);
     return (
         <div className="TodoList">
             <h1>Todo List: MVP</h1>

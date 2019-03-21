@@ -39,7 +39,6 @@ class App extends React.Component {
     }
 
     toggleCompleted = id => {
-        console.log('App toggleCompleted', id);
         this.setState({
             toDoList: this.state.toDoList.map(todo => {
                 if (todo.id === id) {
@@ -54,7 +53,6 @@ class App extends React.Component {
     };
 
     handleChanges = event => {
-        // update the name property on state
         this.setState({
             [event.target.name]: event.target.value
         });
@@ -73,6 +71,13 @@ class App extends React.Component {
         });
     };
 
+    clearCompleted = event => {
+        event.preventDefault();
+        this.setState({
+            toDoList: this.state.toDoList.filter(todo => !todo.completed)
+        })
+    };
+
     render() {
         return (
             <div className="app">
@@ -84,6 +89,7 @@ class App extends React.Component {
                     newTask={this.state.newTask}
                     handleChanges={this.handleChanges}
                     updateList={this.updateList}
+                    clearCompleted={this.clearCompleted}
                 />
             </div>
         );
