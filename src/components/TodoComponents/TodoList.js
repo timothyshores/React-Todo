@@ -5,12 +5,16 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-    console.log('TodoList Props', props.completed);
+    // console.log('TodoList Props', props);
     return (
         <div className="TodoList">
             <h1>Todo List: MVP</h1>
             {props.todos.map((todo, index) => (
-                <Todo todo={todo} key={index} completed={todo.completed} />
+                <Todo
+                    todo={todo}
+                    key={index}
+                    toggleCompleted={props.toggleCompleted}
+                />
             ))}
         </div>
     );
