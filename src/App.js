@@ -39,7 +39,6 @@ class App extends React.Component {
     }
 
     handleChanges = event => {
-        console.log('state ', this.state);
         // update the name property on state
         this.setState({
             [event.target.name]: event.target.value
@@ -48,17 +47,14 @@ class App extends React.Component {
 
     updateList = event => {
         event.preventDefault();
-        console.log('updateList');
         const newTodo = {
             task: this.state.newTask,
             id: this.state.toDoList.length,
             completed: false,
         };
-        console.log('newTodo', newTodo);
-        console.log('spread operator', [...this.state.toDoList, newTodo]);
         this.setState({
             toDoList: [...this.state.toDoList, newTodo],
-            newTask: ''
+            newTask: '',
         });
     };
 
@@ -68,7 +64,7 @@ class App extends React.Component {
             <div className="app">
                 <TodoList todos={this.state.toDoList} />
                 <TodoForm
-                    task={this.state.task}
+                    newTask={this.state.newTask}
                     handleChanges={this.handleChanges}
                     updateList={this.updateList}
                 />

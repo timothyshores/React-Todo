@@ -7,7 +7,7 @@ const TodoForm = props => {
                 type="text"
                 placeholder="Add new todo"
                 name="newTask"
-                value={props.newTodo}
+                value={props.newTask}
                 onChange={props.handleChanges}
             />
             <button onClick={props.updateList}>Add Todo</button>
