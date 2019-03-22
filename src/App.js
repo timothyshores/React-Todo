@@ -38,8 +38,21 @@ class App extends React.Component {
         };
     }
 
+    toggleCompleted = id => {
+        this.setState({
+            toDoList: this.state.toDoList.map(todo => {
+                if (todo.id === id) {
+                    return {
+                        ...todo,
+                        completed: !todo.completed
+                    };
+                }
+                return todo;
+            })
+        });
+    };
+
     handleChanges = event => {
-        // update the name property on state
         this.setState({
             [event.target.name]: event.target.value
         });
@@ -58,15 +71,25 @@ class App extends React.Component {
         });
     };
 
+    clearCompleted = event => {
+        event.preventDefault();
+        this.setState({
+            toDoList: this.state.toDoList.filter(todo => !todo.completed)
+        })
+    };
 
     render() {
         return (
             <div className="app">
-                <TodoList todos={this.state.toDoList} />
+                <TodoList
+                    todos={this.state.toDoList}
+                    toggleCompleted={this.toggleCompleted}
+                />
                 <TodoForm
                     newTask={this.state.newTask}
                     handleChanges={this.handleChanges}
                     updateList={this.updateList}
+                    clearCompleted={this.clearCompleted}
                 />
             </div>
         );
